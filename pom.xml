@@ -29,10 +29,16 @@
       <version>4.0.1</version>
       <scope>provided</scope>
     </dependency>
+
+    <dependency>
+      <groupId>org.thymeleaf</groupId>
+      <artifactId>thymeleaf-spring5</artifactId>
+      <version>3.0.14.RELEASE</version>
+    </dependency>
   </dependencies>
 
   <build>
-<!--    <finalName>PP_2_3_1</finalName>-->
+
     <pluginManagement>
       <plugins>
         <plugin>
