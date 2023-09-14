@@ -1,10 +1,24 @@
 package web.models;
 
+
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.Size;
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
+
 public class User {
 
     private int id;
+
+    @NotEmpty(message = "Not valid name!")
+    @Size(min = 1, max = 15, message = "Enter correct value bet.1 and 15 chars!")
     private String name;
+
+    @Min(value = 0, message = "Not correct age!")
     private int age;
+
+    @Email(message = "Not correct email!")
+    @NotEmpty(message = "Not empty email!")
     private String email;
 
 

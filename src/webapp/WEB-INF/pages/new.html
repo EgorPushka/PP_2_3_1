@@ -8,12 +8,15 @@
 
     <label for="name">Set Name : </label>
     <input type="text" th:field="*{name}" id="name">
+    <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}"/>
     <br/>
     <label for="age">Set Age : </label>
     <input type="number" th:field="*{age}" id="age">
+    <div th:if="${#fields.hasErrors('age')}" th:errors="*{age}"/>
     <br/>
     <label for="email">Set Enail : </label>
     <input type="text" th:field="*{email}" id="email">
+    <div th:if="${#fields.hasErrors('email')}" th:errors="*{email}"/>
     <br/>
     <input type="submit" value="Add User"/>
 

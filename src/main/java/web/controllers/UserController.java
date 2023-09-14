@@ -1,12 +1,15 @@
 package web.controllers;
 
+import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import web.models.User;
 import web.services.UserService;
+
 
 @Controller
 public class UserController {
@@ -37,7 +40,12 @@ public class UserController {
     }
 
     @PostMapping("/users")
-    public String addUser(@ModelAttribute("user") User user) {
+
+    public String addUser(@ModelAttribute("user") @Valid User user, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return "new";
+        }
+        System.out.println(bindingResult.hasErrors());
         userService.add(user);
         return "redirect:/users";
     }
@@ -49,7 +57,12 @@ public class UserController {
     }
 
     @PatchMapping("/user/{id}")
-    public String editUser(@ModelAttribute("user") User user, @PathVariable("id") int id) {
+    public String editUser(@ModelAttribute("user") @Valid User user,
+                           BindingResult bindingResult,
+                           @PathVariable("id") int id) {
+        if (bindingResult.hasErrors()) {
+            return "/edit";
+        }
         userService.edit(user);
         return "redirect:/users";
     }
