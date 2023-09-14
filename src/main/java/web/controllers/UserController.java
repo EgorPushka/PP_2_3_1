@@ -3,10 +3,7 @@ package web.controllers;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import web.models.User;
 import web.services.UserService;
@@ -45,10 +42,16 @@ public class UserController {
         return "redirect:/users";
     }
 
-//    @GetMapping(value = "/edit")
-//    public ModelAndView editUser() {
-//        ModelAndView modelAndView = new ModelAndView();
-//        modelAndView.setViewName("/edit");
-//        return modelAndView;
-//    }
+    @GetMapping("/user/{id}/edit")
+    public String edit(@PathVariable("id") int id, Model model) {
+        model.addAttribute("user", userService.getById(id));
+        return "/edit";
+    }
+
+    @PatchMapping("/user/{id}")
+    public String editUser(@ModelAttribute("user") User user, @PathVariable("id") int id) {
+        userService.edit(user);
+        return "redirect:/users";
+    }
+
 }

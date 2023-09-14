@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
@@ -35,7 +34,7 @@
         <td th:text="${user.getAge()}"></td>
         <td>
             <a th:href="@{/user/{id}(id=${user.getId()})}"> Detail </a>
-            <a th:href="@{/user/{id}(id=${user.getId()})}"> Edit </a>
+            <a th:href="@{/user/{id}/edit(id=${user.getId()})}"> Edit </a>
             <a th:href="@{/user/{id}(id=${user.getId()})}"> Delete </a>
         </td>
     </tr>
