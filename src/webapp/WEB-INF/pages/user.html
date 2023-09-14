@@ -7,15 +7,21 @@
     <style>
         table {
             width: 50%; /* Ширина таблицы */
-            background: aliceblue; /* Цвет фона таблицы */
-            color : black; /* Цвет текста */
+            background: red; /* Цвет фона таблицы */
+            color: black; /* Цвет текста */
             border-spacing: 2px; /* Расстояние между ячейками */
         }
 
         td, th {
-            background: aliceblue; /* Цвет фона ячеек */
-            padding: 5px; /* Поля вокруг текста */
+            background: aliceblue; /* Цвет фона ячеек *!*/
+            padding: 2px; /* Поля вокруг текста */
             text-align: left;
+            width: 25%;
+        }
+
+        button {
+            width: 50px;
+            height: 20px;
         }
     </style>
 </head>
@@ -25,11 +31,13 @@
         <th>Use_Id</th>
         <th>Name</th>
         <th>Age</th>
+        <th>Email</th>
     </tr>
     <tr th:object="${user}">
         <td th:text="${user.getId()}"></td>
         <td th:text="${user.getName()}"></td>
         <td th:text="${user.getAge()}"></td>
+        <td th:text="${user.getEmail()}"></td>
     </tr>
 </table>
 <h2><a href="/users">Back to Users</a></h2>
