@@ -1,6 +1,6 @@
 package web.controllers;
 
-import jakarta.validation.Valid;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import web.models.User;
 import web.services.UserService;
+
+import javax.validation.Valid;
 
 
 @Controller

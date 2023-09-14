@@ -1,10 +1,8 @@
 package web.models;
 
-
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.Size;
-import org.hibernate.validator.constraints.Email;
-import org.hibernate.validator.constraints.NotEmpty;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.*;
 
 public class User {
 
