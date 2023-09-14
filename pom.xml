@@ -35,6 +35,7 @@
       <artifactId>thymeleaf-spring5</artifactId>
       <version>3.0.14.RELEASE</version>
     </dependency>
+
   </dependencies>
 
   <build>
