@@ -17,6 +17,10 @@
             padding: 2px; /* Поля вокруг текста */
             text-align: left;
         }
+        button{
+            width: 50px;
+            height: 20px;
+        }
     </style>
 </head>
 
@@ -33,9 +37,24 @@
         <td th:text="${user.getName()}"></td>
         <td th:text="${user.getAge()}"></td>
         <td>
-            <a th:href="@{/user/{id}(id=${user.getId()})}"> Detail </a>
-            <a th:href="@{/user/{id}/edit(id=${user.getId()})}"> Edit </a>
-            <a th:href="@{/user/{id}(id=${user.getId()})}"> Delete </a>
+            <div style="display: inline-block;">
+                <form th:method="GET" th:action="@{/user/{id}(id=${user.getId()})}">
+<!--                    <input type="submit" value="Detail">-->
+                    <button type="submit" value="Detail">Detail</button>
+                </form>
+            </div>
+
+            <div style="display: inline-block;">
+                <form th:method="GET" th:action="@{/user/{id}/edit(id=${user.getId()})}">
+                    <button type="submit" value="Edit">Edit</button>
+                </form>
+            </div>
+            <div style="display: inline-block;">
+                <form th:method="DELETE" th:action="@{/user/{id}(id=${user.getId()})}">
+                    <button type="submit" value="Delete">Delete</button>
+                </form>
+            </div>
+
         </td>
     </tr>
 </table>

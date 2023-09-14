@@ -54,4 +54,9 @@ public class UserController {
         return "redirect:/users";
     }
 
+    @DeleteMapping("/user/{id}")
+    public String deleteUser(@ModelAttribute("user") User user, @PathVariable("id") int id) {
+        userService.delete(user);
+        return "redirect:/users";
+    }
 }
