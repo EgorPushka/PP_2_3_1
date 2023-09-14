@@ -7,8 +7,8 @@
     <style>
         table {
             width: 50%; /* Ширина таблицы */
-            background: aliceblue /* Цвет фона таблицы */
-            color: chartreuse; /* Цвет текста */
+            background: red; /* Цвет фона таблицы */
+            color: black; /* Цвет текста */
             border-spacing: 2px; /* Расстояние между ячейками */
         }
 
@@ -16,8 +16,10 @@
             background: aliceblue; /* Цвет фона ячеек *!*/
             padding: 2px; /* Поля вокруг текста */
             text-align: left;
+            width: 25%;
         }
-        button{
+
+        button {
             width: 50px;
             height: 20px;
         }
@@ -39,7 +41,7 @@
         <td>
             <div style="display: inline-block;">
                 <form th:method="GET" th:action="@{/user/{id}(id=${user.getId()})}">
-<!--                    <input type="submit" value="Detail">-->
+                    <!--                    <input type="submit" value="Detail">-->
                     <button type="submit" value="Detail">Detail</button>
                 </form>
             </div>
@@ -60,5 +62,4 @@
 </table>
 <h2><a href="/new">Add User</a></h2>
 </body>
-
 </html>

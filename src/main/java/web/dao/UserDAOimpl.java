@@ -20,18 +20,21 @@ public class UserDAOimpl implements UserDAO {
         user1.setId(AtomID.getAndIncrement());
         user1.setName("user1");
         user1.setAge(10);
+        user1.setEmail("user1@mail.ru");
         tmpDS.put(user1.getId(), user1);
 
         User user2 = new User();
         user2.setId(AtomID.getAndIncrement());
-        user2.setName("user3");
+        user2.setName("user2");
         user2.setAge(20);
+        user2.setEmail("user222@gmail.ru");
         tmpDS.put(user2.getId(), user2);
 
         User user3 = new User();
         user3.setId(AtomID.getAndIncrement());
         user3.setName("user3");
         user3.setAge(30);
+        user3.setEmail("user333@yandex.ru");
         tmpDS.put(user3.getId(), user3);
     }
 
