@@ -18,6 +18,7 @@ import javax.validation.Valid;
 public class UserController {
 
     private final UserService userService;
+    private static final String REDIRECT_USERS_LIST_PAGE = "redirect:/users";
 
     @Autowired
     public UserController(UserService userService) {
@@ -51,7 +52,7 @@ public class UserController {
         }
         System.out.println(bindingResult.hasErrors());
         userService.add(user);
-        return "redirect:/users";
+        return REDIRECT_USERS_LIST_PAGE;
     }
 
     @GetMapping("/user/{id}/edit")
@@ -68,12 +69,12 @@ public class UserController {
             return "/edit";
         }
         userService.edit(user);
-        return "redirect:/users";
+        return REDIRECT_USERS_LIST_PAGE;
     }
 
     @DeleteMapping("/user/{id}")
     public String deleteUser(@ModelAttribute("user") User user, @PathVariable("id") int id) {
         userService.delete(user);
-        return "redirect:/users";
+        return REDIRECT_USERS_LIST_PAGE;
     }
 }
