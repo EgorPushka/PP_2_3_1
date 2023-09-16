@@ -1,6 +1,7 @@
 package web.config;
 
 import org.apache.commons.dbcp2.BasicDataSource;
+import org.hibernate.cfg.AvailableSettings;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,7 +36,7 @@ public class HibernateCfg {
 
     private Properties hiberProperties() {
         Properties properties = new Properties();
-//        properties.put("hibernate.dialect", env.getProperty("dialect"));
+        properties.put("hibernate.dialect", env.getProperty("dialect"));
         properties.put("hibernate.show_sql", env.getProperty("show_sql"));
         properties.put("hibernate.hbm2ddl.auto", env.getProperty("hbm2ddl.auto"));
 //        properties.put("hibernate.hbm2ddl.import_files", env.getProperty("hbm2ddl.import_files"));
@@ -45,7 +46,7 @@ public class HibernateCfg {
 
     @Bean
     public DataSource dataSource() {
-//        DriverManagerDataSource ds = new DriverManagerDataSource();
+
         BasicDataSource ds = new BasicDataSource();
         ds.setDriverClassName(env.getRequiredProperty("db.driver"));
         ds.setUrl(env.getRequiredProperty("db.url"));
@@ -61,22 +62,6 @@ public class HibernateCfg {
         ds.setValidationQuery(env.getRequiredProperty("validationQuery"));
         return ds;
     }
-
-//    @Bean
-//    public LocalSessionFactoryBean sessionFactory() {
-//        LocalSessionFactoryBean sf = new LocalSessionFactoryBean();
-//        sf.setDataSource(dataSource());
-//        sf.setPackagesToScan("web.models");
-//        sf.setHibernateProperties(hiberProperties());
-//        return sf;
-//    }
-//
-//    @Bean
-//    public HibernateTransactionManager transactionManager() {
-//        HibernateTransactionManager transactionManager = new HibernateTransactionManager();
-//        transactionManager.setSessionFactory(sessionFactory().getObject());
-//        return transactionManager;
-//    }
 
     @Bean //for EntityManager
     public LocalContainerEntityManagerFactoryBean sessionFactory() {

@@ -7,7 +7,6 @@ import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 import web.models.User;
 import web.services.UserService;
 
@@ -26,11 +25,9 @@ public class UserController {
     }
 
     @GetMapping(value = "/users")
-    public ModelAndView indexUsers(ModelMap model) {
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("users");
-        modelAndView.addObject("users", userService.indexUsers());
-        return modelAndView;
+    public String indexUsers(ModelMap model) {
+        model.addAttribute("users",userService.indexUsers());
+        return "users";
     }
 
     @GetMapping("/user/{id}")
@@ -45,7 +42,6 @@ public class UserController {
     }
 
     @PostMapping("/users")
-
     public String addUser(@ModelAttribute("user") @Valid User user, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "new";
