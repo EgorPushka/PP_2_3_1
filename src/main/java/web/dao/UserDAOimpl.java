@@ -66,6 +66,8 @@ public class UserDAOimpl implements UserDAO {
     @Override
     public void delete(User user) {
 //        tmpDS.remove(user.getId());
+        Session session = sessionFactory.getCurrentSession();
+        session.delete(user);
     }
 
     @Override

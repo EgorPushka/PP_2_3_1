@@ -52,13 +52,16 @@
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-orm</artifactId>
-      <version>6.0.11</version>
+<!--      <version>6.0.11</version>-->
+      <version>5.3.26</version>
     </dependency>
     <!-- https://mvnrepository.com/artifact/org.hibernate.orm/hibernate-core -->
     <dependency>
-      <groupId>org.hibernate.orm</groupId>
+<!--      <groupId>org.hibernate.orm</groupId>-->
+      <groupId>org.hibernate</groupId>
       <artifactId>hibernate-core</artifactId>
-      <version>6.3.0.Final</version>
+<!--      <version>6.3.0.Final</version>-->
+      <version>5.6.3.Final</version>
     </dependency>
 
     <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-dbcp2 -->
@@ -67,16 +70,6 @@
       <artifactId>commons-dbcp2</artifactId>
       <version>2.9.0</version>
     </dependency>
-
-
-
-
-    <!--    <dependency>-->
-<!--      <groupId>javax.validation</groupId>-->
-<!--      <artifactId>validation-api</artifactId>-->
-<!--      <version>2.0.1.Final</version>-->
-<!--    </dependency>-->
-
 
   </dependencies>
 
