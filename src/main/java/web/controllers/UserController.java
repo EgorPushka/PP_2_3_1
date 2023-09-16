@@ -26,7 +26,7 @@ public class UserController {
 
     @GetMapping(value = "/users")
     public String indexUsers(ModelMap model) {
-        model.addAttribute("users",userService.indexUsers());
+        model.addAttribute("users", userService.indexUsers());
         return "users";
     }
 
@@ -42,11 +42,11 @@ public class UserController {
     }
 
     @PostMapping("/users")
-    public String addUser(@ModelAttribute("user") @Valid User user, BindingResult bindingResult) {
+    public String addUser(@ModelAttribute("user") @Valid User user,
+                          BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "new";
         }
-        System.out.println(bindingResult.hasErrors());
         userService.add(user);
         return REDIRECT_USERS_LIST_PAGE;
     }
@@ -69,7 +69,8 @@ public class UserController {
     }
 
     @DeleteMapping("/user/{id}")
-    public String deleteUser(@ModelAttribute("user") User user, @PathVariable("id") int id) {
+    public String deleteUser(@ModelAttribute("user") User user,
+                             @PathVariable("id") int id) {
         userService.delete(user);
         return REDIRECT_USERS_LIST_PAGE;
     }

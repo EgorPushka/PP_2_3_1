@@ -8,8 +8,7 @@ import java.util.List;
 
 public class TestDB {
     public static void main(String[] args) {
-//        String url = "jdbc:mysql://localhost:3306/mydbtest?verifyServerCertificate=false&useSSL=false&requireSSL=false&useLegacyDatetimeCode=false&amp&serverTimezone=UTC";
-        String url = "jdbc:mysql://localhost:3306/mydbtest";
+        String url = "jdbc:mysql://localhost:3306/mydbtest?verifyServerCertificate=false&useSSL=false&requireSSL=false&useLegacyDatetimeCode=false&amp&serverTimezone=UTC";
         String user = "root";
         String pass = "root";
         List<User> userList = new ArrayList<>();
