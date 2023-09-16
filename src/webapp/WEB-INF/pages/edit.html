@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Edit User</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/error.css}"/>
 </head>
 <body>
 
@@ -10,20 +11,22 @@
 
     <label for="name">Set Name : </label>
     <input type="text" th:field="*{name}" id="name">
-    <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}"/>
+    <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="error-message"/>
     <br/>
-
+    <br/>
     <label for="age">Set Age : </label>
     <input type="number" th:field="*{age}" id="age">
-
+    <div th:if="${#fields.hasErrors('age')}" th:errors="*{age}" class="error-message"/>
     <br/>
-
+    <br/>
     <label for="email">Set Enail : </label>
     <input type="text" th:field="*{email}" id="email">
-
+    <div th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="error-message"/>
+    <br/>
+    <br/>
     <input type="submit" value="Update User"/>
 
 </form>
-    <h2><a href="/users">Back to Users</a></h2>
+<h2><a href="/users">Back to Users</a></h2>
 </body>
 </html>

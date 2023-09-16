@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<title>Add New User</title>
+    <title>Add New User</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/error.css}"/>
 </head>
 <body>
 
@@ -8,15 +9,18 @@
 
     <label for="name">Set Name : </label>
     <input type="text" th:field="*{name}" id="name">
-    <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}"/>
+    <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="error-message"/>
+    <br/>
     <br/>
     <label for="age">Set Age : </label>
     <input type="number" th:field="*{age}" id="age">
-    <div th:if="${#fields.hasErrors('age')}" th:errors="*{age}"/>
+    <div th:if="${#fields.hasErrors('age')}" th:errors="*{age}" class="error-message"/>
+    <br/>
     <br/>
     <label for="email">Set Enail : </label>
     <input type="text" th:field="*{email}" id="email">
-    <div th:if="${#fields.hasErrors('email')}" th:errors="*{email}"/>
+    <div th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="error-message"/>
+    <br/>
     <br/>
     <input type="submit" value="Add User"/>
 
